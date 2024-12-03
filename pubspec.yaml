@@ -1,14 +1,20 @@
+# 基础信息
 name: habo
 description: Minimalistic habit tracker.
 
+# 设置为"none"表示不将此应用发布到pub.dev包管理器
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
+# 应用程序的版本号，这里是2.1.0+1。版本号由三部分组成，主版本号.次版本号.补丁版本号，后面的+1是构建号
 version: 2.1.0+1
 
 environment:
+  # Flutter SDK的版本范围
   sdk: ">=2.18.1 <4.0.0"
 
+# 列出项目运行时所需的依赖库
 dependencies:
+  # 指定使用Flutter SDK
   flutter:
     sdk: flutter
   google_fonts: ^6.1.0
@@ -43,30 +49,43 @@ dependencies:
   intl: any
   intl_utils: ^2.8.5
 
+# 列出项目开发阶段所需的依赖库
 dev_dependencies:
+  # Flutter官方提供的测试框架
   flutter_test:
     sdk: flutter
 
+  # 用于代码质量检查的lint工具
   flutter_lints: ^3.0.1
 
 # For now mipmaps are used.
+# 配置Flutter应用的图标
 flutter_icons:
+  # 安卓和ios图标
   image_path_android: "assets/images/icon.png"
   image_path_ios: "assets/images/ios_icon.jpg"
+  # 安卓应用图标前景图和背景色
   adaptive_icon_foreground: "assets/images/android_foreground.png"
   adaptive_icon_background: "#FFFFFF"
+  # Android最低SDK版本
   min_sdk_android: 21
+  # 是否生成对应的图标
   android: true
   ios: true
+  # 是否移除iOS图标的alpha通道
   remove_alpha_ios: true
+  # 是否为macOS生成图标，以及图标的路径
   macos:
     generate: true
     image_path: "assets/images/macos_icon.png"
 
 flutter:
+  # 是否使用Material Design
   uses-material-design: true
+  # 是否自动生成国际化相关的代码
   generate: true
 
+  # 列出项目中使用的静态资源路径
   assets:
     - assets/
     - assets/images/
@@ -74,5 +93,6 @@ flutter:
     - assets/sounds/
     - assets/google_fonts/
 
+# 国际化配置，启用国际化支持
 flutter_intl:
   enabled: true

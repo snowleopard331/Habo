@@ -32,7 +32,9 @@ void initializeNotifications() {
 
 void resetAppNotificationIfMissing(TimeOfDay timeOfDay) async {
   AwesomeNotifications().listScheduledNotifications().then((notifications) {
+    // 遍历通知列表
     for (var not in notifications) {
+      // 如果通知的内容的id为0，则返回
       if (not.content?.id == 0) {
         return;
       }
@@ -62,11 +64,20 @@ void disableAppNotification() {
   AwesomeNotifications().cancel(0);
 }
 
+// 这是一个异步函数，用于设置每日通知
+// id：通知的唯一标识符。
+// timeOfDay：通知触发的时间。
+// title：通知的标题。
+// desc：通知的描述内容。
+// channel：通知渠道的键值
 Future<void> _setupDailyNotification(int id, TimeOfDay timeOfDay, String title,
     String desc, String channel) async {
+  // 平台支持检查
   if (platformSupportsNotifications()) {
+    // 获取本地时区标识符
     String localTimeZone =
         await AwesomeNotifications().getLocalTimeZoneIdentifier();
+    // 创建通知内容
     await AwesomeNotifications().createNotification(
       content: NotificationContent(
         id: id,
